@@ -1,5 +1,7 @@
 backend:
-  name: test-repo
+  name: git-gateway
+  repo: masterbirdy/sophia-website
+  branch: master
 
 media_folder: static/assets
 public_folder: assets
