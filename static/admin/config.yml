@@ -22,11 +22,13 @@ collections:
     create: true
     fields:
       - { name: title, label: Title, widget: string }
+      - { name: subtitle, label: Subtitle, widget: string, required: false }
       - {
           name: featuredimage,
           label: Featured Image,
           widget: image,
           allow_multiple: false,
         }
+      - { name: images, label: Images, widget: image, required: false }
       - { name: description, label: Description, widget: "text" }
       - { name: tags, label: tags, widget: list }
