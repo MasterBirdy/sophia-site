@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import "../scss/main.scss";
 import { createUseStyles } from "react-jss";
+import Header from "../components/header";
 import styled, { keyframes } from "styled-components";
 
 import Layout from "../components/layout";
@@ -99,48 +100,47 @@ const IndexPage = () => {
 
   return (
     <div className="title-screen-page">
-      <div className="full-width-container">
-        <div className="title-name-holder">
-          <h1 className="title-header">Sophie</h1>
-          <h1 className="title-header">Studio</h1>
-        </div>
-        <div className="margin-index-page">
-          <Slider
-            width={imageWidth}
-            numberOfProjects={
-              data.allMarkdownRemark.edges.length > 1
-                ? data.allMarkdownRemark.edges.length
-                : 1
-            }
-          >
-            {data &&
-              data.allMarkdownRemark.edges.map((edge, index) => {
-                if (!index) {
-                  return (
-                    <div key={edge.node.id} ref={firstChildRef}>
-                      <SliderImage
-                        src={edge.node.frontmatter.featuredimage}
-                      ></SliderImage>
-                    </div>
-                  );
-                }
+      <Header logoOn={false}></Header>
+      <div className="title-name-holder">
+        <h1 className="title-header">Sophie</h1>
+        <h1 className="title-header">Studio</h1>
+      </div>
+      <div className="margin-index-page">
+        <Slider
+          width={imageWidth}
+          numberOfProjects={
+            data.allMarkdownRemark.edges.length > 1
+              ? data.allMarkdownRemark.edges.length
+              : 1
+          }
+        >
+          {data &&
+            data.allMarkdownRemark.edges.map((edge, index) => {
+              if (!index) {
                 return (
-                  <div key={edge.node.id}>
+                  <div key={edge.node.id} ref={firstChildRef}>
                     <SliderImage
                       src={edge.node.frontmatter.featuredimage}
                     ></SliderImage>
                   </div>
                 );
-              })}
-            <div key={"last-child" + data.allMarkdownRemark.edges[0].node.id}>
-              <SliderImage
-                src={
-                  data.allMarkdownRemark.edges[0].node.frontmatter.featuredimage
-                }
-              ></SliderImage>
-            </div>
-          </Slider>
-        </div>
+              }
+              return (
+                <div key={edge.node.id}>
+                  <SliderImage
+                    src={edge.node.frontmatter.featuredimage}
+                  ></SliderImage>
+                </div>
+              );
+            })}
+          <div key={"last-child" + data.allMarkdownRemark.edges[0].node.id}>
+            <SliderImage
+              src={
+                data.allMarkdownRemark.edges[0].node.frontmatter.featuredimage
+              }
+            ></SliderImage>
+          </div>
+        </Slider>
       </div>
     </div>
     // <Layout>

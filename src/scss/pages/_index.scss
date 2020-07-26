@@ -28,7 +28,7 @@
 
 .margin-index-page {
   width: 100%;
-  height: 100%;
+  height: calc(100% - #{$header-height});
 
   overflow-x: hidden;
   position: relative;
