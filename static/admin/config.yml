@@ -42,7 +42,7 @@ collections:
     label: Webpage
     files:
       - name: contact-us
-        file: src/pages/contactus/index.md
+        file: src/pages/contact-us/index.md
         label: Contact Us
         fields:
           - {
