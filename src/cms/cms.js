@@ -15,4 +15,5 @@ import CMS from "netlify-cms-app";
  * All of the example imports below would result in styles being applied to the
  * preview pane.
  */
-import "../scss/main.scss";
+import styles from '!css-loader!sass-loader!../scss/main.scss';
+CMS.registerPreviewStyle(styles.toString(), { raw: true });
