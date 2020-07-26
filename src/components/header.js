@@ -5,7 +5,7 @@ import Logo from "../components/logo";
 
 const Header = ({ siteTitle, logoOn }) => (
   <header className="header">
-    <Logo logoOn={logoOn}></Logo>
+    <Logo logoOn={true}></Logo>
     <div className="header-links">
       <Link to="/">Contact Us</Link>
       <Link to="/">About</Link>
