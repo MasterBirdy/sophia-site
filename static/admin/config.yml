@@ -32,8 +32,8 @@ collections:
       - { name: images, label: Images, widget: image, required: false }
       - { name: description, label: Description, widget: "text" }
       - { name: tags, label: tags, widget: list }
-  - name: pages
-    label: Pages
+  - name: webpages
+    label: Webpage
     files:
       - file: "src/pages/contactus/index.md"
       - label: "Contact Us"
