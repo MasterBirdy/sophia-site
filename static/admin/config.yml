@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: test-repo
   repo: masterbirdy/sophia-website
   branch: master
 
@@ -19,6 +19,7 @@ collections:
   - name: projects
     label: Project
     folder: projects
+    slug: "{{title}}"
     create: true
     fields:
       - {
