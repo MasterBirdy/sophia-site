@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import Logo from "../components/logo";
+import CartButton from "../components/cartbutton";
 
 const Header = ({ siteTitle, logoOn }) => (
   <header className="header">
@@ -11,6 +12,7 @@ const Header = ({ siteTitle, logoOn }) => (
       <Link to="/">About</Link>
       <Link to="/">Shop Projects</Link>
     </div>
+    <CartButton></CartButton>
   </header>
 );
 

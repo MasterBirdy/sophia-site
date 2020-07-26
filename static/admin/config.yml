@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: test-repo
   repo: masterbirdy/sophia-website
   branch: master
 
@@ -21,6 +21,12 @@ collections:
     folder: projects
     create: true
     fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "project-item",
+        }
       - { name: title, label: Title, widget: string }
       - { name: subtitle, label: Subtitle, widget: string, required: false }
       - {
@@ -35,9 +41,15 @@ collections:
   - name: webpages
     label: Webpage
     files:
-      - file: "src/pages/contactus/index.md"
-      - label: "Contact Us"
-      - name: "contact-us"
-      - fields:
+      - name: contact-us
+        file: src/pages/contactus/index.md
+        label: Contact Us
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "contact-us",
+            }
           - { label: Title, name: title, widget: string }
           - { label: Body, name: body, widget: markdown }

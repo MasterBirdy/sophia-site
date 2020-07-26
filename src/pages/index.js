@@ -101,11 +101,11 @@ const IndexPage = () => {
   return (
     <div className="title-screen-page">
       <Header logoOn={false}></Header>
-      <div className="title-name-holder">
-        <h1 className="title-header">Sophie</h1>
-        <h1 className="title-header">Studio</h1>
-      </div>
       <div className="margin-index-page">
+        <div className="title-name-holder">
+          <h1 className="title-header">Sophie</h1>
+          <h1 className="title-header">Studio</h1>
+        </div>
         <Slider
           width={imageWidth}
           numberOfProjects={

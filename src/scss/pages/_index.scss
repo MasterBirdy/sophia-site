@@ -1,6 +1,6 @@
 .title-name-holder {
   position: absolute;
-  top: 53%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   user-select: none;
@@ -11,13 +11,17 @@
 
   .title-header {
     font-size: 19vw;
-    line-height: 1.08;
+    line-height: 1.1;
     font-family: "Butler", sans-serif;
     font-weight: 200;
     text-transform: uppercase;
 
     @media (max-width: 768px) {
       font-weight: 300;
+    }
+
+    @media (max-height: 600px) {
+      font-size: 32.5vh;
     }
 
     @media (max-width: 480px) {
@@ -60,7 +64,8 @@
         width: 20vw;
         height: 20vw;
       }
-      @media (max-width: 768px) {
+
+      @media (max-width: 768px), (max-height: 450px) {
         margin-right: 2rem;
         width: 27.5vw;
         height: 27.5vw;

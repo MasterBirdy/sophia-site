@@ -1,4 +1,5 @@
 ---
+templateKey: "project-item"
 title: Earl Grey Tea
 subtitle: Music Video
 featuredimage: assets/earlgreyresizedfeatured.jpg

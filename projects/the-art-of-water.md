@@ -1,4 +1,5 @@
 ---
+templateKey: "project-item"
 title: The Art of Water
 featuredimage: assets/divingresizedfeature.jpg
 images: assets/sectional-per.jpg
