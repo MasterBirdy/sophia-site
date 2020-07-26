@@ -19,7 +19,6 @@ collections:
   - name: projects
     label: Project
     folder: projects
-    slug: "{{title}}"
     create: true
     fields:
       - {

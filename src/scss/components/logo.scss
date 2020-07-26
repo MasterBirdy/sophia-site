@@ -19,4 +19,9 @@
   display: flex;
   justify-content: flex-end;
   width: 64px;
+
+  &.invisible {
+    opacity: 0;
+    pointer-events: none;
+  }
 }

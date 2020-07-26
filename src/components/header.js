@@ -6,13 +6,13 @@ import CartButton from "../components/cartbutton";
 
 const Header = ({ siteTitle, logoOn }) => (
   <header className="header">
-    <Logo logoOn={true}></Logo>
+    <Logo logoOn={logoOn}></Logo>
     <div className="header-links">
-      <Link to="/">Contact Us</Link>
+      <Link to="/contact-us">Contact Us</Link>
       <Link to="/">About</Link>
       <Link to="/">Shop Projects</Link>
     </div>
-    <CartButton></CartButton>
+    <CartButton logoOn={logoOn}></CartButton>
   </header>
 );
 

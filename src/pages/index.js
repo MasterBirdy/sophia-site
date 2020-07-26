@@ -1,11 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import "../scss/main.scss";
-import { createUseStyles } from "react-jss";
+
 import Header from "../components/header";
 import styled, { keyframes } from "styled-components";
+import IndexLayout from "../layouts/IndexLayout";
 
-import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
 
@@ -66,11 +65,12 @@ const IndexPage = () => {
   const [imageWidth, setImageWidth] = useState(0);
 
   const data = useStaticQuery(graphql`
-    query BlogIndexQuery {
-      allMarkdownRemark {
+    query ProjectImagesQuery {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "project-item" } }, id: {} }
+      ) {
         edges {
           node {
-            id
             frontmatter {
               featuredimage
             }
@@ -100,48 +100,49 @@ const IndexPage = () => {
 
   return (
     <div className="title-screen-page">
-      <Header logoOn={false}></Header>
-      <div className="margin-index-page">
-        <div className="title-name-holder">
-          <h1 className="title-header">Sophie</h1>
-          <h1 className="title-header">Studio</h1>
-        </div>
-        <Slider
-          width={imageWidth}
-          numberOfProjects={
-            data.allMarkdownRemark.edges.length > 1
-              ? data.allMarkdownRemark.edges.length
-              : 1
-          }
-        >
-          {data &&
-            data.allMarkdownRemark.edges.map((edge, index) => {
-              if (!index) {
+      <IndexLayout>
+        <div className="margin-index-page">
+          <div className="title-name-holder">
+            <h1 className="title-header">Sophie</h1>
+            <h1 className="title-header">Studio</h1>
+          </div>
+          <Slider
+            width={imageWidth}
+            numberOfProjects={
+              data.allMarkdownRemark.edges.length > 1
+                ? data.allMarkdownRemark.edges.length
+                : 1
+            }
+          >
+            {data &&
+              data.allMarkdownRemark.edges.map((edge, index) => {
+                if (!index) {
+                  return (
+                    <div key={edge.node.id} ref={firstChildRef}>
+                      <SliderImage
+                        src={edge.node.frontmatter.featuredimage}
+                      ></SliderImage>
+                    </div>
+                  );
+                }
                 return (
-                  <div key={edge.node.id} ref={firstChildRef}>
+                  <div key={edge.node.id}>
                     <SliderImage
                       src={edge.node.frontmatter.featuredimage}
                     ></SliderImage>
                   </div>
                 );
-              }
-              return (
-                <div key={edge.node.id}>
-                  <SliderImage
-                    src={edge.node.frontmatter.featuredimage}
-                  ></SliderImage>
-                </div>
-              );
-            })}
-          <div key={"last-child" + data.allMarkdownRemark.edges[0].node.id}>
-            <SliderImage
-              src={
-                data.allMarkdownRemark.edges[0].node.frontmatter.featuredimage
-              }
-            ></SliderImage>
-          </div>
-        </Slider>
-      </div>
+              })}
+            <div key={"last-child" + data.allMarkdownRemark.edges[0].node.id}>
+              <SliderImage
+                src={
+                  data.allMarkdownRemark.edges[0].node.frontmatter.featuredimage
+                }
+              ></SliderImage>
+            </div>
+          </Slider>
+        </div>
+      </IndexLayout>
     </div>
     // <Layout>
     //   <SEO title="Home" />
