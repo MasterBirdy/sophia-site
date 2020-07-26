@@ -1,5 +1,5 @@
 backend:
-  name: test-repo
+  name: git-gateway
   repo: masterbirdy/sophia-website
   branch: master
 
