@@ -6,6 +6,14 @@ backend:
 media_folder: static/assets
 public_folder: assets
 
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: duq22ievt
+    api_key: 921837964991945
+    media_folder: "static/assets"
+    public_folder: "assets"
+
 collections:
   - name: projects
     label: Project

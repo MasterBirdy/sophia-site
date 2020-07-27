@@ -3,6 +3,7 @@
  * extension registration methods, such as `registerWidget` and
  * `registerPreviewTemplate`.
  */
+
 import CMS from "netlify-cms-app";
 
 /**
@@ -15,5 +16,7 @@ import CMS from "netlify-cms-app";
  * All of the example imports below would result in styles being applied to the
  * preview pane.
  */
-import styles from '!css-loader!sass-loader!../scss/main.scss';
+import styles from "!css-loader!sass-loader!../scss/main.scss";
+import cloudinary from "netlify-cms-media-library-cloudinary";
 CMS.registerPreviewStyle(styles.toString(), { raw: true });
+CMS.registerMediaLibrary(cloudinary);

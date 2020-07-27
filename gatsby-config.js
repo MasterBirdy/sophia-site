@@ -1,3 +1,4 @@
+require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -37,6 +38,26 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        prefix: `sophiestudio/`,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-cloudinary",
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        // This folder will be created if it doesn’t exist.
+        uploadFolder: "sophiestudio/",
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
