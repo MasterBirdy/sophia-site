@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: test-repo
   repo: masterbirdy/sophia-website
   branch: master
 
@@ -34,9 +34,42 @@ collections:
           widget: image,
           allow_multiple: false,
         }
-      - { name: images, label: Images, widget: image, required: false }
+      - {
+          name: featuredmovingimage,
+          label: Featured Moving Image,
+          widget: image,
+          allow_multiple: false,
+        }
+      - { name: doodle, label: "Doodle", widget: number }
+      - { name: year, label: "Year", widget: string }
+      - {
+          name: images,
+          label: Images,
+          widget: image,
+          required: false,
+          allow_multiple: true,
+        }
       - { name: description, label: Description, widget: "text" }
-      - { name: tags, label: tags, widget: list }
+      - { name: tags, label: Tags, widget: list }
+      - { name: link, label: Link, widget: string, required: false }
+      - {
+          name: youtubelink,
+          label: Youtube Link,
+          widget: string,
+          required: false,
+        }
+      - {
+          name: instagramlink,
+          label: Instagram Link,
+          widget: string,
+          required: false,
+        }
+      - {
+          name: spotifylink,
+          label: Spotify Link,
+          widget: string,
+          required: false,
+        }
   - name: webpages
     label: Webpage
     files:

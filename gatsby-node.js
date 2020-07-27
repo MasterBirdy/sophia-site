@@ -31,7 +31,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   posts.forEach(edge => {
     const id = edge.node.id;
-    console.log("hi");
     createPage({
       path: edge.node.fields.slug,
       component: path.resolve(

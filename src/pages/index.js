@@ -37,8 +37,8 @@ const SliderImage = styled.img.attrs(props => ({
   object-position: center;
   width: 15vw;
   height: 15vw;
-  max-width: 30rem;
-  max-height: 30rem;
+  max-width: 19rem;
+  max-height: 19rem;
   opacity: 0.9;
   margin-right: 5.5rem;
   filter: grayscale(100%);
@@ -59,6 +59,10 @@ const SliderImage = styled.img.attrs(props => ({
     height: 30vw;
   }
 `;
+
+const imageURLTransform = url => {
+  return url.replace("/upload", "/upload/w_350,h_350,c_fill");
+};
 
 const IndexPage = () => {
   const firstChildRef = useRef();
@@ -120,7 +124,9 @@ const IndexPage = () => {
                   return (
                     <div key={edge.node.id} ref={firstChildRef}>
                       <SliderImage
-                        src={edge.node.frontmatter.featuredimage}
+                        src={imageURLTransform(
+                          edge.node.frontmatter.featuredimage
+                        )}
                       ></SliderImage>
                     </div>
                   );
@@ -135,9 +141,9 @@ const IndexPage = () => {
               })}
             <div key={"last-child" + data.allMarkdownRemark.edges[0].node.id}>
               <SliderImage
-                src={
+                src={imageURLTransform(
                   data.allMarkdownRemark.edges[0].node.frontmatter.featuredimage
-                }
+                )}
               ></SliderImage>
             </div>
           </Slider>
