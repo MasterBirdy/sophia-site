@@ -1,0 +1,8 @@
+src/images/gatsby-astronaut.png
+src/images/gatsby-icon.png
+static/assets/array-3-by-5-e1.png
+static/assets/divingresizedfeature.jpg
+static/assets/earlgreyresizedfeatured.jpg
+static/assets/earlgreytearesized.jpg
+static/assets/night_taow.jpg
+static/assets/sectional-per.jpg
