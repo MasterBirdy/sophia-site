@@ -1,0 +1,26 @@
+.press-page {
+  @include standardPage(#fff9e0);
+  .press-inner-page {
+    height: calc(100% - #{$header-height} - #{$subheader-height});
+    padding-bottom: 1rem;
+    .press-page-content {
+      height: 100%;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 60rem;
+      font-size: $normal-font-size;
+      font-family: "Quicksand", sans-serif;
+      padding: 3rem 1rem 1rem;
+      overflow-y: auto;
+
+      h2 {
+        font-family: "Butler", sans-serif;
+        font-size: $normal-font-size;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

@@ -1,12 +1,22 @@
 .logo {
+  width: 64px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 0.33rem;
   .logo-text {
     font-family: "Butler", sans-serif;
     font-weight: 300;
     line-height: 0.85;
     text-transform: uppercase;
-    font-size: 1.8rem;
+    font-size: 1.375rem;
+    text-align: justify;
+    &.first-name {
+      letter-spacing: 1px;
+    }
   }
 
   &.invisible {
@@ -19,6 +29,9 @@
   display: flex;
   justify-content: flex-end;
   width: 64px;
+  svg {
+    font-size: 2rem;
+  }
 
   &.invisible {
     opacity: 0;

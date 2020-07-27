@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 1.25rem;
+  height: $header-height;
+
+  &.border-on {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+  }
+  .header-links {
+    flex-grow: 1;
+    display: flex;
+
+    text-align: center;
+
+    a {
+      flex: 1 1 0px;
+      text-decoration: none;
+      font-family: "Quicksand", sans-serif;
+      color: rgb(22, 22, 22);
+      font-size: $index-font-size;
+      text-transform: lowercase;
+      transition: all 0.3s ease;
+      &:hover {
+        font-family: "Butler", sans-serif;
+        color: #ffc400;
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+.subheader {
+  height: $subheader-height;
+  font-family: "Butler", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+  h2 {
+    padding-top: 0.4rem;
+    font-weight: 400;
+    font-size: 2.25rem;
+    text-transform: lowercase;
+  }
+}

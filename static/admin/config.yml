@@ -7,15 +7,6 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
-    create: true
-    fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
   - name: projects
     label: Project
     folder: projects
@@ -52,4 +43,29 @@ collections:
               default: "contact-us",
             }
           - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown }
+      - name: press
+        file: src/pages/press/index.md
+        label: Press
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "press",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown }
+      - name: returns
+        file: src/pages/returns/index.md
+        label: "Returns & Exchanges"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "returns",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: "Large Word", name: largeword, widget: string }
           - { label: Body, name: body, widget: markdown }

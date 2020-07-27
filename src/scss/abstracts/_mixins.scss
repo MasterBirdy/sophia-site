@@ -1,0 +1,11 @@
+@mixin standardPage($selectedColor) {
+  width: 100%;
+  height: 100vh;
+  background-color: $selectedColor;
+}
+
+@mixin container {
+  margin: 0 auto;
+  width: 80rem;
+  padding: 0 2rem;
+}

@@ -1,0 +1,6 @@
+.free-things-page {
+  @include standardPage(#fff9e0);
+  .free-things-inner-page {
+    height: calc(100% - #{$header-height} - #{$subheader-height});
+  }
+}

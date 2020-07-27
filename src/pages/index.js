@@ -20,8 +20,8 @@ const move = (w, num) => keyframes`
 const Slider = styled.div`
   position: absolute;
   display: flex;
-  top: 50%;
-  transform: translate(0%, -50%);
+  top: 48%;
+  transform: translate(0%, -48%);
   max-height: 36.4rem;
   animation: ${props => {
       console.log(props.numberOfProjects);
@@ -103,7 +103,7 @@ const IndexPage = () => {
       <IndexLayout>
         <div className="margin-index-page">
           <div className="title-name-holder">
-            <h1 className="title-header">Sophie</h1>
+            <h1 className="title-header first-name">Sophie</h1>
             <h1 className="title-header">Studio</h1>
           </div>
           <Slider

@@ -7,16 +7,17 @@ const ContactUsPage = ({ data }) => {
 
   return (
     <div className="contact-us-page">
-      <Layout>
-        <div className="contact-us-grid">
-          <div
-            className="contact-us-grid-item"
-            dangerouslySetInnerHTML={{
-              __html: post.html,
-            }}
-          ></div>
-          <div>
-            <p>world</p>
+      <Layout subheader={data.markdownRemark.frontmatter.title}>
+        <div className="contact-us-inner-page">
+          <div className="contact-us-grid">
+            <div className="contact-us-grid-container">
+              <div
+                className="contact-us-grid-item"
+                dangerouslySetInnerHTML={{
+                  __html: post.html,
+                }}
+              ></div>
+            </div>
           </div>
         </div>
       </Layout>

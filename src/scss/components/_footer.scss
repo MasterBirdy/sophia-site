@@ -1,0 +1,76 @@
+.footer {
+  border-top: rgba(70, 70, 70, 0.5) 1px solid;
+  .footer-grid {
+    display: grid;
+    background-color: white;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem 1rem 2rem;
+    margin: 0 auto;
+    width: 100%;
+
+    .grid-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .footer-logo {
+        font-size: 2rem;
+        font-family: "Butler", sans-serif;
+        h2 {
+          font-weight: 300;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-align: justify;
+          line-height: 0.9;
+          &.first-name {
+            letter-spacing: 4px;
+          }
+        }
+      }
+
+      .links {
+        list-style: none;
+        font-family: "Quicksand", sans-serif;
+        li {
+          text-transform: lowercase;
+          a {
+            text-decoration: none;
+            color: black;
+          }
+          &:not(:last-child) {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+
+      .footer-sign-up {
+        font-family: "Butler", sans-serif;
+        text-transform: lowercase;
+        width: 75%;
+
+        @media (max-width: 1500px) {
+          width: 100%;
+        }
+
+        .text-block {
+          padding: 0 1rem;
+          p {
+            font-size: 1.1rem;
+            font-weight: 300;
+          }
+        }
+
+        input {
+          margin: 0.75rem auto 0;
+          padding: 0.25rem;
+          font-family: "Butler", sans-serif;
+          display: block;
+          border-radius: 5px;
+          border: 1px solid rgb(71, 71, 71);
+          width: 100%;
+          max-width: 20rem;
+        }
+      }
+    }
+  }
+}

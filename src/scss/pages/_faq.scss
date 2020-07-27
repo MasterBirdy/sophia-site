@@ -1,0 +1,6 @@
+.faq-page {
+  @include standardPage(#fff9e0);
+  .faq-inner-page {
+    height: calc(100% - #{$header-height} - #{$subheader-height});
+  }
+}

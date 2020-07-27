@@ -1,0 +1,30 @@
+.large-text-container {
+  @include container;
+  position: relative;
+  padding: 1rem 5rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: $normal-font-size;
+  overflow-y: auto;
+  height: 100%;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  h1,
+  h2 {
+    font-family: "Butler", sans-serif;
+    font-weight: 400;
+  }
+
+  h1 {
+    font-size: 6.125rem;
+    margin-bottom: -1rem;
+    margin-left: -5rem;
+  }
+
+  h2 {
+    font-size: 2.33rem;
+    margin-bottom: 0.5rem;
+  }
+}

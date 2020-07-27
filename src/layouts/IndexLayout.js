@@ -4,7 +4,7 @@ import Header from "../components/header";
 const IndexLayout = ({ children }) => {
   return (
     <>
-      <Header logoOn={false}></Header>
+      <Header logoOn={false} borderOn={false}></Header>
       {children}
     </>
   );

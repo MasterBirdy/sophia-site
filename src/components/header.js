@@ -4,8 +4,8 @@ import React from "react";
 import Logo from "../components/logo";
 import CartButton from "../components/cartbutton";
 
-const Header = ({ siteTitle, logoOn }) => (
-  <header className="header">
+const Header = ({ siteTitle, logoOn, borderOn }) => (
+  <header className={["header", borderOn ? "border-on" : ""].join(" ")}>
     <Logo logoOn={logoOn}></Logo>
     <div className="header-links">
       <Link to="/contact-us">Contact Us</Link>
@@ -19,11 +19,13 @@ const Header = ({ siteTitle, logoOn }) => (
 Header.propTypes = {
   siteTitle: PropTypes.string,
   logoOn: PropTypes.bool,
+  borderOn: PropTypes.bool,
 };
 
 Header.defaultProps = {
   siteTitle: ``,
   logoOn: true,
+  borderOn: true,
 };
 
 export default Header;
