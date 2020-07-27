@@ -2,6 +2,9 @@
 templateKey: project-item
 title: The Art of Water
 featuredimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595835641/sophiestudio/night_taow_m33gh5.jpg
+featuredmovingimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595835641/sophiestudio/night_taow_m33gh5.jpg
+doodle: 2
+year: "2019"
 images: https://res.cloudinary.com/duq22ievt/image/upload/v1595835639/sophiestudio/sectional_per_yvujd0.jpg
 description: TAO-W is a community swimming pool/center and conceptual project
   that aims to destress the society of Hong Kong, utilizing the power of art -
@@ -9,4 +12,5 @@ description: TAO-W is a community swimming pool/center and conceptual project
 tags:
   - design
   - photo illustration rendering
+link: www.google.com
 ---
