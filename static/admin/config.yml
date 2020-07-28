@@ -13,6 +13,7 @@ media_library:
     api_key: 921837964991945
     media_folder: "static/assets"
     public_folder: "assets"
+    multiple: true
 
 collections:
   - name: projects
@@ -42,13 +43,7 @@ collections:
         }
       - { name: doodle, label: "Doodle", widget: number }
       - { name: year, label: "Year", widget: string }
-      - {
-          name: images,
-          label: Images,
-          widget: image,
-          required: false,
-          allow_multiple: true,
-        }
+      - { name: images, label: Images, widget: image, required: false }
       - { name: description, label: Description, widget: "text" }
       - { name: tags, label: Tags, widget: list }
       - { name: link, label: Link, widget: string, required: false }
