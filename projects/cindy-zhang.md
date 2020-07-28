@@ -2,8 +2,7 @@
 templateKey: project-item
 title: Cindy Zhang
 featuredimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595907366/sophiestudio/nwtzbhqlamfd1vchyxzn.png
-featuredmovingimage:
-  - https://res.cloudinary.com/duq22ievt/image/upload/v1595907366/sophiestudio/nwtzbhqlamfd1vchyxzn.png
+featuredmovingimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595907366/sophiestudio/nwtzbhqlamfd1vchyxzn.png
 doodle: 2
 year: "2019"
 images:

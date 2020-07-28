@@ -46,7 +46,7 @@ const ProjectItemPage = ({ data }) => {
 
 export default ProjectItemPage;
 
-export const contactUsPageQuery = graphql`
+export const projectItemPageQuery = graphql`
   query ProjectItem($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {

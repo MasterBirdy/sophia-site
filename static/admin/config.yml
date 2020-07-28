@@ -13,13 +13,14 @@ media_library:
     api_key: 921837964991945
     media_folder: "static/assets"
     public_folder: "assets"
-    multiple: true
 
 collections:
   - name: projects
     label: Project
     folder: projects
     create: true
+    media_library:
+      name: cloudinary
     fields:
       - {
           label: "Template Key",
@@ -31,19 +32,25 @@ collections:
       - { name: subtitle, label: Subtitle, widget: string, required: false }
       - {
           name: featuredimage,
-          label: Featured Image,
+          label: "Featured Image",
           widget: image,
           allow_multiple: false,
         }
       - {
           name: featuredmovingimage,
-          label: Featured Moving Image,
+          label: "Featured Moving Image",
           widget: image,
           allow_multiple: false,
         }
       - { name: doodle, label: "Doodle", widget: number }
       - { name: year, label: "Year", widget: string }
-      - { name: images, label: Images, widget: image, required: false }
+      - label: Images
+        name: images
+        widget: image
+        options:
+          media_library:
+            config:
+              multiple: true
       - { name: description, label: Description, widget: "text" }
       - { name: tags, label: Tags, widget: list }
       - { name: link, label: Link, widget: string, required: false }

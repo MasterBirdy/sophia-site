@@ -2,10 +2,8 @@
 templateKey: project-item
 title: Eugenie Grey
 subtitle: Smashbox
-featuredimage:
-  - https://res.cloudinary.com/duq22ievt/image/upload/v1595908360/sophiestudio/ekxox9fa7thlgfqu9uv8.png
-featuredmovingimage:
-  - https://res.cloudinary.com/duq22ievt/image/upload/v1595908360/sophiestudio/ekxox9fa7thlgfqu9uv8.png
+featuredimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595908360/sophiestudio/ekxox9fa7thlgfqu9uv8.png
+featuredmovingimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595908360/sophiestudio/ekxox9fa7thlgfqu9uv8.png
 doodle: 2
 year: "2019"
 images:

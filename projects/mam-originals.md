@@ -1,10 +1,8 @@
 ---
 templateKey: project-item
 title: Mam Originals
-featuredimage:
-  - https://res.cloudinary.com/duq22ievt/image/upload/v1595908629/sophiestudio/t6drn6jhzxs4lvjl3kps.png
-featuredmovingimage:
-  - https://res.cloudinary.com/duq22ievt/image/upload/v1595908629/sophiestudio/t6drn6jhzxs4lvjl3kps.png
+featuredimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595908629/sophiestudio/t6drn6jhzxs4lvjl3kps.png
+featuredmovingimage: https://res.cloudinary.com/duq22ievt/image/upload/v1595908629/sophiestudio/t6drn6jhzxs4lvjl3kps.png
 doodle: 2
 year: "2019"
 images:
