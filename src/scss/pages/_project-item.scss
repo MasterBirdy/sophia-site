@@ -1,0 +1,95 @@
+.project-item-page {
+  @include standardPage(#fff9e0);
+  .project-item-container {
+    position: relative;
+    flex-grow: 1;
+    padding: 3rem 1rem 3rem 8rem;
+    .project-item-inner-page {
+      height: 100%;
+      .project-item-images {
+        height: 100%;
+        white-space: nowrap;
+        overflow-x: hidden;
+        .project-item-image {
+          display: inline-block;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+
+  .project-item-subheader {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid black;
+
+    .subheader-grid {
+      display: grid;
+      border-right: 1px solid black;
+      grid-template-columns: 8rem 1fr 1fr 1fr;
+      .subheader-title {
+        padding: 1rem 0 0.33rem;
+        grid-column: 2 / span 3;
+        font-family: "Butler", sans-serif;
+        h2 {
+          font-weight: 400;
+          font-size: 2.25rem;
+          text-transform: lowercase;
+        }
+      }
+
+      .social-media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-top: 1px solid black;
+        padding: 1rem 2rem;
+        justify-content: center;
+        svg {
+          font-size: 2rem;
+          &:not(:last-child) {
+            margin-bottom: 0.33rem;
+          }
+        }
+      }
+
+      .project-information {
+        grid-column: span 3;
+        padding: 1.125rem 0rem;
+        border-top: 1px solid black;
+
+        .project-subitem-item {
+          font-family: "Quicksand", sans-serif;
+          button {
+            background-color: black;
+            color: white;
+            border: 0;
+            font-family: "Butler", sans-serif;
+            font-size: 1.1rem;
+            padding: 0.66rem 1.9rem;
+            font-weight: 500;
+            text-transform: lowercase;
+          }
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+
+    .subheader-description-container {
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .subheader-description {
+        font-size: 1rem;
+        font-family: "Quicksand", sans-serif;
+        max-width: 20rem;
+      }
+    }
+  }
+}

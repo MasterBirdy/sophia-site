@@ -24,7 +24,6 @@ const Slider = styled.div`
   transform: translate(0%, -48%);
   max-height: 36.4rem;
   animation: ${props => {
-      console.log(props.numberOfProjects);
       return move(props.width, props.numberOfProjects);
     }}
     5s linear infinite;
@@ -42,6 +41,7 @@ const SliderImage = styled.img.attrs(props => ({
   opacity: 0.9;
   margin-right: 5.5rem;
   filter: grayscale(100%);
+  cursor: pointer;
   @media (max-width: 1024px) {
     margin-right: 3rem;
     width: 20vw;
@@ -77,6 +77,9 @@ const IndexPage = () => {
           node {
             frontmatter {
               featuredimage
+            }
+            fields {
+              slug
             }
           }
         }
@@ -123,19 +126,23 @@ const IndexPage = () => {
                 if (!index) {
                   return (
                     <div key={edge.node.id} ref={firstChildRef}>
-                      <SliderImage
-                        src={imageURLTransform(
-                          edge.node.frontmatter.featuredimage
-                        )}
-                      ></SliderImage>
+                      <Link to={edge.node.fields.slug}>
+                        <SliderImage
+                          src={imageURLTransform(
+                            edge.node.frontmatter.featuredimage
+                          )}
+                        ></SliderImage>
+                      </Link>
                     </div>
                   );
                 }
                 return (
                   <div key={edge.node.id}>
-                    <SliderImage
-                      src={edge.node.frontmatter.featuredimage}
-                    ></SliderImage>
+                    <Link to={edge.node.fields.slug}>
+                      <SliderImage
+                        src={edge.node.frontmatter.featuredimage}
+                      ></SliderImage>
+                    </Link>
                   </div>
                 );
               })}

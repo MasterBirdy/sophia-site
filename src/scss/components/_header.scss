@@ -5,7 +5,7 @@
   height: $header-height;
 
   &.border-on {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid black;
   }
   .header-links {
     flex-grow: 1;
@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid black;
   h2 {
     padding-top: 0.4rem;
     font-weight: 400;
