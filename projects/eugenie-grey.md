@@ -11,7 +11,7 @@ images:
   - https://res.cloudinary.com/duq22ievt/image/upload/v1595908358/sophiestudio/liii3lhjps0s6akrs2pc.png
 description: Sophie shot Eugenie for her Smashbox Cosmetics social campaign. The
   series of images and video aims to translate the feelings of luxury, dream and
-  beauty to potential customers of the collection - 'The Mindful 5'.
+  beauty to potential customers of the collection - 'The Mindful 5'. Testing.
 tags:
   - photo
   - video
