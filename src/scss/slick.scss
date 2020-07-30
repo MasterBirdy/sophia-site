@@ -1,0 +1,14 @@
+.slick-slider,
+.slick-list,
+.slick-track,
+.slick-slide > * {
+  height: 100%;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

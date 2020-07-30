@@ -15,11 +15,15 @@ const ProjectItemLayout = ({
   tags,
   title,
   year,
+  youtubelink,
+  instagramlink,
+  spotifylink,
+  isIn,
 }) => {
   return (
     <>
       <div className="project-item-layout">
-        <Header logoOn={true} borderOn={true}></Header>
+        <Header logoOn={true} borderOn={true} isIn={true}></Header>
         <ProjectItemSubheader
           featuredimage={featuredimage}
           featuredmovingimage={featuredmovingimage}
@@ -31,6 +35,10 @@ const ProjectItemLayout = ({
           tags={tags}
           title={title}
           year={year}
+          youtubelink={youtubelink}
+          instagramlink={instagramlink}
+          spotifylink={spotifylink}
+          isIn={isIn}
         ></ProjectItemSubheader>
         {children}
       </div>

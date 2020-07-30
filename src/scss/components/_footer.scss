@@ -74,3 +74,36 @@
     }
   }
 }
+
+.index-footer {
+  position: relative;
+  margin: 0 64px;
+  padding: 0.25rem 1.25rem;
+  height: $header-height;
+
+  .footer-links {
+    text-align: center;
+    display: flex;
+    .footer-link {
+      flex: 1 1 0px;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: translateY(5px);
+        a {
+          &:hover {
+            font-family: "Butler", sans-serif;
+            color: #ffc400;
+          }
+        }
+      }
+      a {
+        text-decoration: none;
+        font-family: "Quicksand", sans-serif;
+        color: rgb(22, 22, 22);
+        font-size: $index-font-size;
+        text-transform: lowercase;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+}

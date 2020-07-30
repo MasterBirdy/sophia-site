@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-
+import { useSpring, animated } from "react-spring";
+import TransitionLink, { TransitionState } from "gatsby-plugin-transition-link";
 import Header from "../components/header";
 import styled, { keyframes } from "styled-components";
 import IndexLayout from "../layouts/IndexLayout";
@@ -8,25 +9,48 @@ import IndexLayout from "../layouts/IndexLayout";
 import Image from "../components/image";
 import SEO from "../components/seo";
 
-const move = (w, num) => keyframes`
-0% {
-  transform: translate(0%, -50%);
-}
-100% {
-  transform: translate(${w ? -w * num + "px" : "0%"}, -50%);
-}
-`;
+const move = (w, num) => {
+  return keyframes`
+    0% {
+      transform: translate(0%, -50%);
+    }
+    100% {
+      transform: translate(${w ? -w * num + "px" : "0%"}, -50%);
+    }
+    `;
+};
 
-const Slider = styled.div`
+const Slider = styled(animated.div)`
   position: absolute;
   display: flex;
   top: 48%;
+  overflow-x: hidden;
   transform: translate(0%, -48%);
   max-height: 36.4rem;
+  will-change: transform;
+
+  &.fade-enter {
+    opacity: 0;
+  }
+
+  &.fade-enter-active {
+    transition: opacitiy 1000ms ease-in-out;
+    opacity: 1;
+  }
+
+  &.fade-exit {
+    transition: opacity 1000ms ease-in-out;
+    opacity: 0;
+  }
+
+  &.fade-exit-active {
+    opacity: 1;
+  }
+
   animation: ${props => {
       return move(props.width, props.numberOfProjects);
     }}
-    5s linear infinite;
+    ${props => 6 + props.numberOfProjects * 2}s linear infinite;
 `;
 
 const SliderImage = styled.img.attrs(props => ({
@@ -38,7 +62,7 @@ const SliderImage = styled.img.attrs(props => ({
   height: 15vw;
   max-width: 19rem;
   max-height: 19rem;
-  opacity: 0.9;
+  opacity: 0.8;
   margin-right: 5.5rem;
   filter: grayscale(100%);
   cursor: pointer;
@@ -64,9 +88,32 @@ const imageURLTransform = url => {
   return url.replace("/upload", "/upload/w_350,h_350,c_fill");
 };
 
-const IndexPage = () => {
+const IndexPage = ({ location, transitionStatus, entry, exit }) => {
   const firstChildRef = useRef();
   const [imageWidth, setImageWidth] = useState(0);
+  const [isIn, setIsIn] = useState(false);
+
+  const transitionProps = useSpring({
+    opacity:
+      transitionStatus === "entering" || transitionStatus === "entered" ? 1 : 0,
+  });
+
+  const springProps = useSpring({
+    opacity: isIn ? 1 : 0,
+  });
+
+  const delayProps = useSpring({
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: isIn ? 1 : 0,
+    },
+    delay: 1000,
+    config: {
+      duration: 750,
+    },
+  });
 
   const data = useStaticQuery(graphql`
     query ProjectImagesQuery {
@@ -75,6 +122,7 @@ const IndexPage = () => {
       ) {
         edges {
           node {
+            id
             frontmatter {
               featuredimage
             }
@@ -98,6 +146,10 @@ const IndexPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    setIsIn(transitionStatus === "entering" || transitionStatus === "entered");
+  }, [transitionStatus]);
+
   const handleResize = () => {
     let temp = getComputedStyle(firstChildRef.current).width.split("px");
     if (temp.length > 1) {
@@ -107,14 +159,15 @@ const IndexPage = () => {
 
   return (
     <div className="title-screen-page">
-      <IndexLayout>
-        <div className="margin-index-page">
-          <div className="title-name-holder">
+      <IndexLayout isIn={isIn} exit={exit} entry={entry}>
+        <animated.div style={transitionProps} className="margin-index-page">
+          <animated.div style={springProps} className="title-name-holder">
             <h1 className="title-header first-name">Sophie</h1>
             <h1 className="title-header">Studio</h1>
-          </div>
+          </animated.div>
           <Slider
             width={imageWidth}
+            style={delayProps}
             numberOfProjects={
               data.allMarkdownRemark.edges.length > 1
                 ? data.allMarkdownRemark.edges.length
@@ -126,48 +179,85 @@ const IndexPage = () => {
                 if (!index) {
                   return (
                     <div key={edge.node.id} ref={firstChildRef}>
-                      <Link to={edge.node.fields.slug}>
+                      <TransitionLink
+                        to={edge.node.fields.slug}
+                        exit={{
+                          length: 0.5,
+                          state: {
+                            pathname: edge.node.fields.slug,
+                          },
+                        }}
+                        entry={{
+                          delay: 0.5,
+                          state: {
+                            pathname: edge.node.fields.slug,
+                          },
+                        }}
+                      >
                         <SliderImage
                           src={imageURLTransform(
                             edge.node.frontmatter.featuredimage
                           )}
                         ></SliderImage>
-                      </Link>
+                      </TransitionLink>
                     </div>
                   );
                 }
+
                 return (
                   <div key={edge.node.id}>
-                    <Link to={edge.node.fields.slug}>
+                    <TransitionLink
+                      to={edge.node.fields.slug}
+                      exit={{
+                        length: 0.5,
+                        state: {
+                          pathname: edge.node.fields.slug,
+                        },
+                      }}
+                      entry={{
+                        delay: 0.5,
+                        state: {
+                          pathname: edge.node.fields.slug,
+                        },
+                      }}
+                    >
                       <SliderImage
                         src={edge.node.frontmatter.featuredimage}
                       ></SliderImage>
-                    </Link>
+                    </TransitionLink>
                   </div>
                 );
               })}
-            <div key={"last-child" + data.allMarkdownRemark.edges[0].node.id}>
-              <SliderImage
-                src={imageURLTransform(
-                  data.allMarkdownRemark.edges[0].node.frontmatter.featuredimage
-                )}
-              ></SliderImage>
-            </div>
+            {data &&
+              data.allMarkdownRemark.edges.map(edge => {
+                return (
+                  <div key={"repeat" + edge.node.id}>
+                    <TransitionLink
+                      to={edge.node.fields.slug}
+                      exit={{
+                        length: 0.5,
+                        state: {
+                          pathname: edge.node.fields.slug,
+                        },
+                      }}
+                      entry={{
+                        delay: 0.5,
+                        state: {
+                          pathname: edge.node.fields.slug,
+                        },
+                      }}
+                    >
+                      <SliderImage
+                        src={edge.node.frontmatter.featuredimage}
+                      ></SliderImage>
+                    </TransitionLink>
+                  </div>
+                );
+              })}
           </Slider>
-        </div>
+        </animated.div>
       </IndexLayout>
     </div>
-    // <Layout>
-    //   <SEO title="Home" />
-    //   <h1>Hi people</h1>
-    //   <p>Welcome to your new Gatsby site.</p>
-    //   <p>Now go build something great.</p>
-    //   <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-    //     <Image />
-    //   </div>
-    //   <Link to="/page-2/">Go to page 2</Link> <br />
-    //   <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    // </Layout>
   );
 };
 

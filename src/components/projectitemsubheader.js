@@ -1,5 +1,6 @@
 import React from "react";
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube, FaLink, FaInstagram, FaSpotify } from "react-icons/fa";
+import { useSpring, animated } from "react-spring";
 
 const ProjectItemSubheader = ({
   featuredimage,
@@ -12,9 +13,25 @@ const ProjectItemSubheader = ({
   tags,
   title,
   year,
+  youtubelink,
+  instagramlink,
+  spotifylink,
+  isIn,
 }) => {
+  const springProps = useSpring({
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: isIn ? 1 : 0,
+    },
+    config: {
+      duration: 600,
+    },
+  });
+
   return (
-    <div className="project-item-subheader">
+    <animated.div style={springProps} className="project-item-subheader">
       <div className="subheader-grid">
         <div className="subheader-title col-3 column-start-2">
           <h2>
@@ -22,8 +39,10 @@ const ProjectItemSubheader = ({
           </h2>
         </div>
         <div className="social-media col-1">
-          <FaYoutube></FaYoutube>
-          <FaYoutube></FaYoutube>
+          {link && <FaLink></FaLink>}
+          {youtubelink && <FaYoutube></FaYoutube>}
+          {instagramlink && <FaInstagram></FaInstagram>}
+          {spotifylink && <FaSpotify></FaSpotify>}
         </div>
         <div className="project-information col-3">
           <div className="project-subitem-item">
@@ -50,7 +69,7 @@ const ProjectItemSubheader = ({
           <p>{description}</p>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 
@@ -60,6 +79,10 @@ ProjectItemSubheader.defaultProps = {
   doodle: 0,
   tags: [],
   description: "No description provided.",
+  link: "",
+  youtubelink: "",
+  instagramlink: "",
+  spotifylink: "",
 };
 
 export default ProjectItemSubheader;

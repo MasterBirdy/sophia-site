@@ -3,20 +3,14 @@
   .project-item-container {
     position: relative;
     flex-grow: 1;
-    padding: 3rem 1rem 3rem 8rem;
-    .project-item-inner-page {
+    padding: 3rem 3rem 3rem 8rem;
+
+    .project-item-images {
       height: 100%;
-      .project-item-images {
-        height: 100%;
-        white-space: nowrap;
-        overflow-x: hidden;
-        .project-item-image {
-          display: inline-block;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-        }
-      }
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      cursor: grab;
     }
   }
 

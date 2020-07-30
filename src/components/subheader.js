@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useTemplateProps } from "../animation/animations";
+import { animated } from "react-spring";
 
-const Subheader = ({ subheader }) => {
+const Subheader = ({ subheader, isIn }) => {
+  const templateProps = useTemplateProps(isIn, 600);
+
   return (
-    <div className="subheader">
+    <animated.div style={templateProps} className="subheader">
       <h2>{subheader}</h2>
-    </div>
+    </animated.div>
   );
 };
 

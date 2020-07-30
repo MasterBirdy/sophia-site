@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { graphql } from "gatsby";
+import TransitionLink, { TransitionState } from "gatsby-plugin-transition-link";
+import { useSpring, animated } from "react-spring";
 import ProjectImages from "../components/projectimages";
 import ProjectItemLayout from "../layouts/ProjectItemLayout";
 
-const ProjectItemPage = ({ data }) => {
-  console.log(data);
+const ProjectItemPage = ({ data, transitionStatus, entry, exit }) => {
+  const [isIn, setIsIn] = useState(false);
+  const imagesRef = useRef();
+
+  const normalProps = useSpring({
+    from: {
+      transform: "translateX(100%)",
+    },
+    to: {
+      transform: isIn ? "translateX(0%)" : "translateX(100%)",
+    },
+    delay: 750,
+    config: {
+      mass: 12,
+      tension: 165,
+      friction: 69,
+    },
+  });
+
+  useEffect(() => {
+    setIsIn(transitionStatus === "entering" || transitionStatus === "entered");
+  }, [transitionStatus]);
+
   const {
     featuredimage,
     featuredmovingimage,
@@ -16,10 +39,17 @@ const ProjectItemPage = ({ data }) => {
     tags,
     title,
     year,
+    youtubelink,
+    spotifylink,
+    instagramlink,
   } = data.markdownRemark.frontmatter;
 
-  const allImages = [featuredimage, images];
-  console.log(allImages);
+  const allImages = [featuredimage];
+  if (images.length) {
+    allImages.push(...images);
+  } else {
+    allImages.push(images);
+  }
   return (
     <div className="project-item-page">
       <ProjectItemLayout
@@ -33,12 +63,17 @@ const ProjectItemPage = ({ data }) => {
         tags={tags}
         title={title}
         year={year}
+        youtubelink={youtubelink}
+        spotifylink={spotifylink}
+        instagramlink={instagramlink}
+        isIn={isIn}
       >
-        <div className="project-item-container">
-          <div className="project-item-inner-page">
-            <ProjectImages images={allImages}></ProjectImages>
-          </div>
-        </div>
+        <animated.div style={normalProps} className="project-item-container">
+          <ProjectImages
+            images={allImages}
+            imagesRef={imagesRef}
+          ></ProjectImages>
+        </animated.div>
       </ProjectItemLayout>
     </div>
   );

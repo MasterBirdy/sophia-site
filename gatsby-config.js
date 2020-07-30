@@ -10,6 +10,13 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-jss`,
     {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`./src/layouts/index.js`),
+      },
+    },
+
+    {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
