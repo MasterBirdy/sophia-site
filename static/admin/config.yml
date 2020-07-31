@@ -141,5 +141,23 @@ collections:
               collection: projects,
               searchFields: ["title"],
               valueField: "{{slug}}",
-              displayFields: ["title", "featuredimage"],
             }
+          - { label: First Item Label, name: firstitemlabel, widget: string }
+          - {
+              label: Second Item,
+              name: seconditem,
+              widget: relation,
+              collection: projects,
+              searchFields: ["title"],
+              valueField: "{{slug}}",
+            }
+          - { label: Second Item Label, name: seconditemlabel, widget: string }
+          - {
+              label: Third Item,
+              name: thirditem,
+              widget: relation,
+              collection: projects,
+              searchFields: ["title"],
+              valueField: "{{slug}}",
+            }
+          - { label: Third Item Label, name: thirditemlabel, widget: string }
