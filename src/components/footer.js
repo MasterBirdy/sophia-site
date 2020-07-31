@@ -5,7 +5,7 @@ import { FaYoutube, FaInstagram, FaTwitter, FaPinterest } from "react-icons/fa";
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query SocialMediaQuery {
-      markdownRemark(id: { eq: "a27f1ffb-1ba5-50c3-b1e3-64ba5214889b" }) {
+      markdownRemark(frontmatter: { instagram: { ne: null } }) {
         frontmatter {
           instagram
           pinterest
@@ -15,6 +15,8 @@ const Footer = () => {
       }
     }
   `);
+
+  console.log(data);
 
   return (
     <footer className="footer">
