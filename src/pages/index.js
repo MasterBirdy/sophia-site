@@ -92,6 +92,7 @@ const IndexPage = ({ location, transitionStatus, entry, exit }) => {
   const firstChildRef = useRef();
   const [imageWidth, setImageWidth] = useState(0);
   const [isIn, setIsIn] = useState(false);
+  const [hoveredOver, setHoveredOver] = useState(false);
 
   const transitionProps = useSpring({
     opacity:
@@ -161,9 +162,28 @@ const IndexPage = ({ location, transitionStatus, entry, exit }) => {
     <div className="title-screen-page">
       <IndexLayout isIn={isIn} exit={exit} entry={entry}>
         <animated.div style={transitionProps} className="margin-index-page">
-          <animated.div style={springProps} className="title-name-holder">
-            <h1 className="title-header first-name">Sophie</h1>
-            <h1 className="title-header">Studio</h1>
+          <animated.div
+            style={springProps}
+            className="title-name-holder"
+            onMouseEnter={() => setHoveredOver(true)}
+            onMouseLeave={() => setHoveredOver(false)}
+          >
+            <h1
+              className={[
+                "title-header",
+                "first-name",
+                hoveredOver ? "hovered" : "",
+              ].join(" ")}
+            >
+              Sophie
+            </h1>
+            <h1
+              className={["title-header", hoveredOver ? "hovered" : ""].join(
+                " "
+              )}
+            >
+              Studio
+            </h1>
           </animated.div>
           <Slider
             width={imageWidth}

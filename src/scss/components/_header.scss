@@ -24,7 +24,7 @@
         transition: all 0.3s ease;
         &:hover {
           font-family: "Butler", sans-serif;
-          color: #ffc400;
+          color: $text-gold-color;
           transform: translateY(-5px);
         }
       }

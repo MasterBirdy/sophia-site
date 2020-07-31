@@ -7,7 +7,7 @@ import { useTemplateProps } from "../animation/animations";
 const ContactUsPage = ({ data, transitionStatus }) => {
   const [isIn, setIsIn] = useState(false);
 
-  const templateProps = useTemplateProps(isIn, 600);
+  const templateProps = useTemplateProps(isIn, 600, 1000);
 
   const post = data.markdownRemark;
 

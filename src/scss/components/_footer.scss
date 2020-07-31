@@ -40,6 +40,13 @@
           &:not(:last-child) {
             margin-bottom: 0.5rem;
           }
+
+          .social-media-links {
+            font-size: 1.125rem;
+            a:not(:last-child) {
+              margin-right: 0.33rem;
+            }
+          }
         }
       }
 

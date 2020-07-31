@@ -1,7 +1,21 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery } from "gatsby";
+import { FaYoutube, FaInstagram, FaTwitter, FaPinterest } from "react-icons/fa";
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    query SocialMediaQuery {
+      markdownRemark(id: { eq: "a27f1ffb-1ba5-50c3-b1e3-64ba5214889b" }) {
+        frontmatter {
+          instagram
+          pinterest
+          twitter
+          youtube
+        }
+      }
+    }
+  `);
+
   return (
     <footer className="footer">
       <div className="footer-grid">
@@ -48,6 +62,38 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/free-things">Free Things</Link>
+            </li>
+            <li>
+              <div className="social-media-links">
+                <a
+                  href={data.markdownRemark.frontmatter.pinterest}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaPinterest></FaPinterest>
+                </a>
+                <a
+                  href={data.markdownRemark.frontmatter.youtube}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaYoutube></FaYoutube>
+                </a>
+                <a
+                  href={data.markdownRemark.frontmatter.twitter}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaTwitter></FaTwitter>
+                </a>
+                <a
+                  href={data.markdownRemark.frontmatter.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaInstagram></FaInstagram>
+                </a>
+              </div>
             </li>
           </ul>
         </div>

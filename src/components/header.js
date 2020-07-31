@@ -20,7 +20,7 @@ const Header = ({ logoOn, borderOn }) => {
         </div>
         <div className="header-link-div">
           {" "}
-          <Link to="/">Shop Projects</Link>
+          <Link to="/shop-projects">Shop Projects</Link>
         </div>
       </div>
       <CartButton logoOn={true}></CartButton>

@@ -15,6 +15,18 @@ media_library:
     public_folder: "assets"
 
 collections:
+  - name: socialmedia
+    label: Social Media
+    files:
+      - name: social-media
+        file: src/socialmedia/index.md
+        label: Social Media
+        fields:
+          - { name: instagram, label: Instagram, widget: string }
+          - { name: pinterest, label: Pinterest, widget: string }
+          - { name: youtube, label: Youtube, widget: string }
+          - { name: twitter, label: Twitter, widget: string }
+
   - name: projects
     label: Project
     folder: projects
@@ -112,3 +124,21 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: "Large Word", name: largeword, widget: string }
           - { label: Body, name: body, widget: markdown }
+      - name: view-featured
+        file: src/pages/view-featured/index.md
+        label: "View Featured"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "view-featured",
+            }
+          - {
+              label: First Item,
+              name: firstitem,
+              widget: relation,
+              collection: projects,
+              searchFields: ["title"],
+              valueField: "title",
+            }
