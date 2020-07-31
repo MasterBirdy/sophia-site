@@ -1,3 +1,2 @@
 ---
-firstitem: Cindy Zhang
 ---

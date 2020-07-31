@@ -140,5 +140,6 @@ collections:
               widget: relation,
               collection: projects,
               searchFields: ["title"],
-              valueField: "title",
+              valueField: "{{slug}}",
+              displayFields: ["title", "featuredimage"],
             }
